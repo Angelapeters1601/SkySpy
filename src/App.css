@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ff9a9e;
+  font-family: "Cinzel Decorative", cursive;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0px -8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title-container {
+  letter-spacing: 3px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  color: #333333;
+  position: relative;
+}
+
+.title-container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  bottom: -10px;
+  left: 0;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 3.8rem;
+  word-spacing: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: inherit;
+  position: relative;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: inherit;
+}
+
+.title-icon {
+  font-size: 1.7em;
+  color: #333333;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.sub-title {
+  font-family: "Crimson";
+  font-size: 15px;
+  color: #888;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+
+.details {
+  color: #333333;
+  padding: 40px 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.details p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-family: "Crimson";
+  margin: 0;
+}
+
+.details span {
+  color: black;
+  font-weight: bold;
+  font-family: Cinzel Decorative;
+}
+
+.input {
+  display: flex;
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.input input {
+  width: 100%;
+  background-color: #fad0c4;
+  color: black;
+  font-family: Cinzel Decorative;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px 40px 12px 16px;
+  border: 2px solid #ff9a9e;
+  border-radius: 25px;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input input:focus {
+  border-color: #fad0c4;
+  box-shadow: 0 0 8px rgba(250, 208, 196, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  font-size: 1.2rem;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+  color: #ff9a9e;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button {
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  color: #333333;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Cinzel Decorative", cursive;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #ff6b6b, #ffb3b3);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+
+.spinner {
+  border: 8px solid #e6b4b5;
+  border-top: 10px solid #ff9a9e;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-msg {
+  font-family: "Crimson";
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  line-height: 3rem;
+  color: #333333;
+}
+
+.weather {
+  text-align: center;
+  margin: 40px;
+}
+
+.weather-card {
+  position: relative;
+  background: linear-gradient(90deg, #ff9a9e, #333333);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #a37272;
+  offset: 2px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  height: 320px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.weather-card h2 {
+  border-bottom: 2px solid pink;
+  font-size: 23px;
+  line-height: 2.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-icon {
+  font-size: 2rem;
+}
+
+.date {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 28px;
+  margin: 10px 0;
+  color: white;
+}
+
+.day-card {
+  text-align: center;
+}
+
+.day-label {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 20px;
+}
+
+.temperature {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.navigation {
+  margin-top: 25px;
+}
+
+.navigation button {
+  background-color: #ff9a9e;
+  color: #333333;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navigation button:hover {
+  background: linear-gradient(90deg, #ff6b6b, #ffb3b3);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+  margin-top: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  background-color: #ff9a9e;
+  color: #333333;
+  padding: 10px 0 25px 0;
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+.footer h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9a9e, #333333);
+  margin: 10px auto;
+  border-radius: 10px;
+}
