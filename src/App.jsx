@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSpring, animated, Controller } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 import axios from "axios";
 import "./App.css";
 import Title from "./Title";
@@ -9,6 +9,8 @@ import Weather from "./Weather";
 import Loader from "./Loader";
 import ErrorMsg from "./ErrorMsg";
 import Footer from "./Footer";
+import { IoIosMoon } from "react-icons/io";
+import { FaSun } from "react-icons/fa";
 
 function convertToFlag(countryCode) {
   const codePoints = countryCode
@@ -25,6 +27,7 @@ function App() {
     config: { duration: 1200 },
   });
 
+  const [theme, setTheme] = useState("light");
   const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
@@ -45,6 +48,16 @@ function App() {
       ? parseFloat(localStorage.getItem("longitude"))
       : null
   );
+
+  // Function to toggle between dark and light themes
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  useEffect(() => {
+    // Apply the theme class to the body element
+    document.body.className = theme;
+  }, [theme]);
 
   useEffect(() => {
     if (!location || location.length < 3) return;
@@ -106,6 +119,9 @@ function App() {
 
   return (
     <animated.div style={props} className="app fade-in">
+      <button onClick={toggleTheme} className="theme-toggle-btn">
+        {theme === "light" ? <IoIosMoon size={15} /> : <FaSun size={15} />}
+      </button>
       <Title />
       <Details />
       <Input location={location} setLocation={setLocation} />

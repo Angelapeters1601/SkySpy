@@ -11,6 +11,12 @@ body {
   font-family: "Cinzel Decorative", cursive;
   max-height: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body.dark {
+  background-color: #333333;
+  color: #fff;
 }
 
 .app {
@@ -21,11 +27,40 @@ body {
   width: 80%;
   margin: 0 auto;
   box-shadow: 0px -8px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  top: 1px;
+  left: -19px;
+  margin: 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  margin-left: 20px;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(1px);
+}
+
+.light .theme-toggle-btn {
+  background-color: #333;
+  color: #ff9a9e;
+}
+
+.dark .theme-toggle-btn {
+  background-color: #ff9a9e;
+  color: #333;
 }
 
 .title-container {
-  letter-spacing: 3px;
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +111,6 @@ body {
 }
 
 .details {
-  color: #333333;
   padding: 40px 20px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -208,6 +242,7 @@ body {
 .weather {
   text-align: center;
   margin: 40px;
+  width: 65%;
 }
 
 .weather-card {
@@ -221,18 +256,16 @@ body {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  height: 320px;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .weather-card h2 {
   border-bottom: 2px solid pink;
-  font-size: 23px;
+  font-size: 1.6rem;
   line-height: 2.5rem;
   letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .carousel {
@@ -245,11 +278,11 @@ body {
 }
 
 .weather-icon {
-  font-size: 2rem;
+  font-size: 3.3rem;
 }
 
 .date {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 2px;
   line-height: 28px;
@@ -262,7 +295,7 @@ body {
 }
 
 .day-label {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   letter-spacing: 2px;
   line-height: 25px;
   font-weight: bold;
@@ -271,9 +304,9 @@ body {
 }
 
 .temperature {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 17px;
 }
 
 .navigation {
@@ -309,14 +342,16 @@ body {
 .footer {
   background-color: #ff9a9e;
   color: #333333;
-  padding: 10px 0 25px 0;
+  width: 1120px;
+  padding: 5px 75px;
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
 }
 
 .footer h2 {
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  letter-spacing: 2px;
   margin: 0;
   padding: 0;
 }
@@ -329,4 +364,199 @@ body {
   background: linear-gradient(90deg, #ff9a9e, #333333);
   margin: 10px auto;
   border-radius: 10px;
+}
+
+/* media queries */
+@media only screen and (max-width: 620px) and (min-width: 480px) {
+  .input {
+    margin-bottom: -10px;
+  }
+
+  .input input {
+    font-size: 0.9rem;
+  }
+
+  .search-icon {
+    right: 20px;
+  }
+
+  .weather {
+    width: 75%;
+  }
+  .navigation button {
+    padding: 10px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 425px) {
+  .title {
+    font-size: 3.2rem;
+    gap: 5px;
+  }
+
+  .title-icon {
+    font-size: 1.5em;
+  }
+
+  .details {
+    padding: 20px 20px 30px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  .details p {
+    font-size: 1rem;
+  }
+
+  .input {
+    margin: 8px auto;
+  }
+
+  .input input {
+    font-size: 1rem;
+    padding: 10px 40px 10px 16px;
+  }
+
+  .search-icon {
+    right: 10px;
+    font-size: 1rem;
+  }
+
+  .weather {
+    margin: 8px;
+  }
+
+  .weather-card {
+    padding: 5px;
+  }
+
+  .weather-card h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .carousel {
+    height: 170px;
+  }
+
+  .date {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  .day-label {
+    margin-top: 10px;
+  }
+
+  .temperature {
+    font-size: 1.2rem;
+  }
+
+  .navigation button {
+    padding: 7px 7px;
+    margin: 0 35px;
+    font-size: 0.8rem;
+  }
+
+  .footer h2 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .title {
+    font-size: 2.8rem;
+    gap: 5px;
+  }
+
+  .title-icon {
+    font-size: 1.1em;
+  }
+
+  .details {
+    padding: 15px 15px 20px;
+    max-width: 800px;
+    margin: 15px auto;
+  }
+
+  .details p {
+    font-size: 0.9rem;
+  }
+
+  .input {
+    margin: 6px auto;
+  }
+
+  .input input {
+    font-size: 0.7rem;
+  }
+
+  .search-icon {
+    right: 13px;
+    font-size: 0.9rem;
+  }
+
+  .weather {
+    width: 90%;
+  }
+
+  .weather-card {
+    padding: 10px;
+  }
+
+  .weather-card h2 {
+    font-size: 18px;
+  }
+
+  .carousel {
+    height: 180px;
+  }
+
+  .date {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  .day-label {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .temperature {
+    font-size: 1.2rem;
+  }
+
+  .navigation button {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    background-color: transparent;
+  }
+
+  .footer h2 {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 350px) and (min-width: 320px) {
+  .footer {
+    margin-top: -15px;
+  }
+
+  .footer h2 {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+
+  .input {
+    margin-bottom: -10px;
+  }
+
+  .input input {
+    font-size: 0.6rem;
+  }
+
+  .weather {
+    width: 90%;
+  }
 }
