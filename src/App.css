@@ -34,7 +34,7 @@ body.dark {
 
 .theme-toggle-btn {
   position: absolute;
-  top: 1px;
+  top: -0.3px;
   left: -19px;
   margin: 0;
   padding: 10px 20px;
