@@ -119,10 +119,7 @@ function App() {
 
   return (
     <animated.div style={props} className="app fade-in">
-      <button onClick={toggleTheme} className="theme-toggle-btn">
-        {theme === "light" ? <IoIosMoon size={15} /> : <FaSun size={15} />}
-      </button>
-      <Title />
+      <Title theme={theme} onToggle={toggleTheme} />
       <Details />
       <Input location={location} setLocation={setLocation} />
       {loading && <Loader />}
@@ -143,3 +140,8 @@ function App() {
 }
 
 export default App;
+{
+  /* <button onClick={toggleTheme} className="theme-toggle-btn">
+  {theme === "light" ? <IoIosMoon size={15} /> : <FaSun size={15} />}
+</button>; */
+}
